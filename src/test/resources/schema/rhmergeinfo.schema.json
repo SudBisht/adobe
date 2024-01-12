@@ -1,0 +1,141 @@
+{
+  "meta:license": [
+    "Copyright 2023 Adobe Systems Incorporated. All rights reserved.",
+    "This work is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "$id": "http://ns.adobe.com/xcm/annotation/rhmergeinfo",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Annotation Service RHMergeInfo",
+  "description": "RHMergeInfo schema used in Annotation service in Share/Unshare workflows",
+  "type" : ["object"],
+  "id" : "RHMergeInfo",
+  "title": "Schema for RH Merge Info",
+  "definitions": {
+    "pending_merges" : {
+      "description": "An array containing a list of all pending merges for annotations on the asset",
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "PendingMerge",
+        "properties" : {
+          "pending_message_id" : {
+            "type" : "string"
+          },
+          "sqs_message_id" : {
+            "type" : "string"
+          },
+          "queue_type" : {
+            "type" : "string"
+          },
+          "merge_start_time" : {
+            "type": "integer"
+          },
+          "merge_step_start_time" : {
+            "type" : "integer"
+          },
+          "lastmod_time" : {
+            "type" : "integer"
+          },
+          "state" : {
+            "type" : "string"
+          },
+          "job_id" : {
+            "type" : "string"
+          },
+          "job_type" : {
+            "type" : "string"
+          },
+          "comment_doc_etag" : {
+            "type" : "string"
+          },
+          "comment_rendition_etag" : {
+            "type" : "string"
+          },
+          "retry_count" : {
+            "type" : "integer"
+          },
+          "persistence_type" : {
+            "type" : "string"
+          },
+          "output_asset_urn" : {
+            "type" : "string"
+          },
+          "user_id" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "metadata" : {
+      "description": "Metadata of the RHMergeInfo custom rendition",
+      "type" : "object",
+      "id" : "Metadata",
+      "properties" : {
+        "version" : {
+          "type" : "integer"
+        },
+        "permanent_error" : {
+          "type" : "object",
+          "id" : "PermanentError",
+          "properties" : {
+            "error_asset_etag" : {
+              "type" : "string"
+            },
+            "error_code" : {
+              "type" : "string"
+            },
+            "error_msg" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "last_merge" : {
+      "description": "A dictionary containing details about the last successful merge operation which was performed over the document",
+      "type" : "object",
+      "id" : "LastMerge",
+      "properties" : {
+        "last_merge_time" : {
+          "type" : "string"
+        },
+        "comment_rendition_etag" : {
+          "type" : "string"
+        },
+        "comment_doc_etag" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "properties" : {
+    "collab:rhMergeInfo" : {
+      "properties" : {
+        "pending_merges" : {
+          "$ref": "#/definitions/pending_merges"
+        },
+        "metadata" : {
+          "$ref": "#/definitions/metadata"
+        },
+        "last_merge" : {
+          "$ref": "#/definitions/last_merge"
+        },
+        "isPresent" : {
+          "type" : "boolean"
+        },
+        "eTag": {
+          "type": "string"
+        },
+        "pending_metadata_extractions" : {
+          "description": "An array containing list of non-merge operation related shared cloud worker jobs that may have been started by merge daemon or RH API server",
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

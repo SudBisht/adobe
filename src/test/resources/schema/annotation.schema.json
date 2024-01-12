@@ -10,8 +10,8 @@
   "type": ["object"],
   "title": "Annotation Schema",
   "properties": {
-    "collab:coreAnnotation": { "$ref": "http://ns.adobe.com/xcm/asset/annotation/core-annotation" },
-    "collab:perUserPerAnnotation": { "$ref": "http://ns.adobe.com/xcm/asset/annotation/per-user-per-annotation" }
+    "collab:coreAnnotation": { "$ref": "classpath:///schema/core-annotation.schema.json" },
+    "collab:perUserPerAnnotation": { "$ref": "classpath:///schema/per-user-per-annotation.schema.json" }
   },
   "required": ["collab:coreAnnotation"]
 }
