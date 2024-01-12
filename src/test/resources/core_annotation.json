@@ -1,0 +1,611 @@
+{
+  "meta:license": [
+    "Copyright 2023 Adobe Systems Incorporated. All rights reserved.",
+    "This work is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "$id": "http://ns.adobe.com/xcm/asset/annotation/core-annotation",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Core Annotation entity definition",
+  "description": "Represents Core Annotation entity",
+  "definitions": {
+    "AdobeDynamicViewSelector": {
+      "type": "object",
+      "title": "The AdobeDynamicViewSelector Schema",
+      "additionalProperties": false,
+      "required": [
+        "collab:type"
+      ],
+      "properties": {
+        "collab:type": {
+          "type": "string",
+          "const": "AdobeDynamicViewSelector"
+        },
+        "collab:startStructElem": {
+          "type": "integer",
+          "title": "The startStructElem Schema",
+          "minimum": 0
+        },
+        "collab:endStructElem": {
+          "type": "integer",
+          "title": "The endStructElem Schema",
+          "minimum": 0
+        },
+        "collab:startStructId": {
+          "type": "string",
+          "title": "The startStructId Schema"
+        },
+        "collab:startOffset": {
+          "type": "integer",
+          "title": "The startOffset Schema",
+          "minimum": 0
+        },
+        "collab:endOffset": {
+          "type": "integer",
+          "title": "The endOffset Schema",
+          "minimum": 0
+        },
+        "collab:leftOffset": {
+          "type": "number",
+          "title": "The leftOffset Schema"
+        },
+        "collab:topOffset": {
+          "type": "number",
+          "title": "The topOffset Schema"
+        },
+        "collab:refinedBy": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/AdobeTemporalSelector"
+            }
+          ]
+        }
+      }
+    },
+    "AdobeAnnoSelector": {
+      "type": "object",
+      "title": "The AdobeAnnoSelector Schema",
+      "additionalProperties": false,
+      "properties": {
+        "collab:type": {
+          "type": "string",
+          "title": "The Type Schema",
+          "const": "AdobeAnnoSelector"
+        },
+        "collab:refinedBy": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/AdobeDynamicViewSelector"
+            },
+            {
+              "$ref": "#/definitions/AdobeTemporalSelector"
+            }
+          ]
+        },
+        "collab:appearance": {
+          "type": "object",
+          "title": "The appearance Schema",
+          "additionalProperties": false,
+          "properties": {
+            "collab:id": {
+              "type": "string",
+              "title": "The id Schema"
+            }
+          }
+        },
+        "collab:originId": {
+          "type": "string",
+          "title": "The Collab Origin Id Schema"
+        },
+        "collab:node": {
+          "type": "object",
+          "title": "The Node Schema",
+          "additionalProperties": false,
+          "properties": {
+            "collab:index": {
+              "type": "integer",
+              "title": "The Index Schema",
+              "default": 0
+            },
+            "collab:id": {
+              "type": "string",
+              "title": "The Id Schema"
+            },
+            "collab:indices": {
+              "type": "array",
+              "title": "The indices Schema",
+              "items": {
+                "title": "The indices items Schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "collab:index": {
+                    "type": "integer",
+                    "title": "The Index Schema"
+                  },
+                  "collab:quadPoints":  { "$ref": "#/definitions/quadPoints" },
+                  "collab:rect": { "$ref": "#/definitions/rect" },
+                  "collab:boundingBox": {
+                    "type": "array",
+                    "maxItems": 4,
+                    "minItems": 4,
+                    "title": "The Boundingbox Schema",
+                    "items": {
+                      "type": "number",
+                      "title": "The Items Schema",
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "collab:subtype": {
+          "type": "string",
+          "title": "The Subtype Schema",
+          "enum": [
+            "doc",
+            "node",
+            "note",
+            "strikeout",
+            "highlight",
+            "underline",
+            "shape",
+            "insert",
+            "replace",
+            "freetext",
+            "unsupported"
+          ]
+        },
+        "collab:quadPoints": { "$ref": "#/definitions/quadPoints" },
+        "collab:rect": { "$ref": "#/definitions/rect" },
+        "collab:boundingBox": {
+          "type": "array",
+          "title": "The Boundingbox Schema",
+          "items": {
+            "type": "number",
+            "title": "The Items Schema",
+            "default": 0
+          }
+        },
+        "collab:inkList": {
+          "type": "array",
+          "title": "The inkList Schema",
+          "items": {
+            "type": "array",
+            "title": "The Inklist items Schema",
+            "default": 0,
+            "items": {
+              "type": "number",
+              "default": 0
+            }
+          }
+        },
+        "collab:strokeColor": {
+          "type": "string",
+          "title": "The Strokecolor Schema",
+          "default": ""
+        },
+        "collab:opacity": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "The Opacity Schema",
+          "default": 0
+        },
+        "collab:strokeWidth": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "The strokeWidth Schema"
+        },
+        "collab:noteX": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "The Notex Schema",
+          "default": 0
+        },
+        "collab:noteY": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "The Notey Schema"
+        },
+        "collab:styleClass": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "The CSS Class for Styling of richBodyValue"
+        },
+        "collab:intentProperty": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Intent Property value for DC Documents Highlighting tool"
+        }
+      }
+    },
+    "AdobeTemporalSelector": {
+      "type": "object",
+      "title": "The AdobeTemporalSelector Schema",
+      "additionalProperties": false,
+      "properties": {
+        "collab:type": {
+          "type": "string",
+          "enum": ["AdobeTemporalSelector"]
+        },
+        "collab:frameRateRatio": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "collab:num": {
+              "type": "number",
+              "title": "The numerator of the FrameRateRatio",
+              "minimum": 1
+            },
+            "collab:denom": {
+              "type": "number",
+              "title": "The denominator of the FrameRateRatio",
+              "minimum": 1
+            }
+          }
+        },
+        "collab:unit": {
+          "type": "string",
+          "enum": ["frame", "tick"],
+          "title": "The unit of the temporal selector"
+        },
+        "collab:start": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "collab:end": {
+          "type": "number"
+        },
+        "collab:continueFor": {
+          "type": "number"
+        },
+        "collab:refinedBy": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/AdobeDynamicViewSelector"
+            },
+            {
+              "$ref": "#/definitions/AdobeAnnoSelector"
+            }
+          ]
+        }
+      },
+      "required": ["collab:type","collab:start"]
+    },
+    "AdobeFragmentSelector": {
+      "type": "object",
+      "title": "The AdobeFragmentSelector Schema",
+      "additionalProperties": false,
+      "required": [
+        "collab:type",
+        "collab:fragmentReference"
+      ],
+      "properties": {
+        "collab:type": {
+          "type": "string",
+          "const": "AdobeFragmentSelector"
+        },
+        "collab:fragmentReference": {
+          "type": "string",
+          "title": "Fragment reference",
+          "description": "Identify a fragment of a resource by either id <id=...> or path <path=...>"
+        },
+        "collab:refinedBy": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/AdobeTemporalSelector"
+            },
+            {
+              "$ref": "#/definitions/AdobeAnnoSelector"
+            },
+            {
+              "$ref": "#/definitions/AdobeDynamicViewSelector"
+            }
+          ]
+        }
+      }
+    },
+    "quadPoints": {
+      "type": "array",
+      "title": "The Quadpoints Schema",
+      "items": {
+        "type": "number",
+        "title": "The Items Schema",
+        "default": 0
+      }
+    },
+    "rect": {
+      "type": "array",
+      "maxItems": 4,
+      "minItems": 4,
+      "title": "The rect Schema",
+      "items": {
+        "type": "number",
+        "title": "The Items Schema",
+        "default": 0
+      }
+    },
+    "createdBy": {
+      "type": "object",
+      "title": "The Created/modified by Schema",
+      "additionalProperties": false,
+      "properties": {
+        "repo:type": {
+          "type": "string",
+          "title": "The Created/Modified by type Schema",
+          "enum": [
+            "Person"
+          ]
+        },
+        "repo:id": {
+          "type": "string",
+          "title": "The Id Schema"
+        },
+        "repo:affiliation": {
+          "type": "string",
+          "title": "The Affiliation Schema"
+        },
+        "repo:name": {
+          "type": "string",
+          "title": "The Name Schema"
+        },
+        "repo:email": {
+          "type": "string",
+          "title": "The Email Schema"
+        },
+        "repo:img": {
+          "type": "string",
+          "title": "The Img Schema"
+        },
+        "repo:anonymous": {
+          "type": "boolean",
+          "title": "Flag for Authenticated vs guest user"
+        }
+      }
+    },
+    "createDate": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Creation/Modification time of Annotation"
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "@context": {
+      "type": "array",
+      "title": "The @context Schema",
+      "items": {
+        "type": "string",
+        "title": "The Items Schema"
+      }
+    },
+    "collab:annotationId": {
+      "type": "string",
+      "title": "The Id Schema"
+    },
+    "collab:creationId": {
+      "type": "string",
+      "title": "The Id Schema"
+    },
+    "collab:x-request-id": {
+      "type": "string",
+      "title": "The x-request-id Schema"
+    },
+    "collab:type": {
+      "type": "string",
+      "enum": [
+        "Annotation"
+      ]
+    },
+    "collab:body": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dc:format": {
+          "type": "string",
+          "title": "format schema"
+        },
+        "value": {
+          "type": "string",
+          "title": "body value schema"
+        },
+        "richValue": {
+          "type": "string",
+          "title": "body rich value schema"
+        }
+      }
+    },
+    "collab:mentions": {
+      "type": "array",
+      "title": "The Mentions Schema",
+      "maxItems": 10,
+      "items": {
+        "title": "The Mentions items Schema",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "collab:type": {
+            "type": "string",
+            "title": "The Mention type Schema"
+          },
+          "collab:id": {
+            "type": "string",
+            "title": "The Id Schema"
+          },
+          "collab:name": {
+            "type": "string",
+            "title": "The Name Schema"
+          },
+          "collab:email": {
+            "type": "string",
+            "title": "The Email Schema"
+          }
+        }
+      }
+    },
+    "collab:status": {
+      "title": "The Status schema",
+      "type": "string",
+      "enum": [
+        "open",
+        "resolved"
+      ],
+      "description": "Status of the Annotation, can be open or resolved."
+    },
+    "collab:reviewState": {
+      "title": "The Review State schema",
+      "type": "string",
+      "enum": [
+        "none",
+        "accepted",
+        "cancelled",
+        "completed",
+        "rejected"
+      ],
+      "description": "Review state of the Annotation, can be none, accepted, completed, cancelled or rejected."
+    },
+    "collab:createdBy": { "$ref": "#/definitions/createdBy" },
+    "collab:createDate": { "$ref": "#/definitions/createDate" },
+    "collab:modifyDate": { "$ref": "#/definitions/createDate" },
+    "collab:modifiedBy": { "$ref": "#/definitions/createdBy" },
+    "collab:coreGN": {
+      "type": "number",
+      "title": "Resource generation number managed by Annotation service"
+    },
+    "collab:motivation": {
+      "type": "string",
+      "title": "The Motivation Schema",
+      "enum": [
+        "commenting",
+        "replying"
+      ]
+    },
+    "collab:generator": {
+      "type": "string",
+      "title": "generator of Annotation."
+    },
+    "collab:urlClassificationCategory": {
+      "type": "string",
+      "title": "Spam URL category detected by ACMP"
+    },
+    "collab:urlClassificationScore": {
+      "type": "integer",
+      "title": "Spam URL score detected by ACMP",
+      "minimum": 0
+    },
+    "collab:target": {
+      "type": "object",
+      "title": "The Target Schema",
+      "additionalProperties": false,
+      "properties": {
+        "collab:source": {
+          "type": "string"
+        },
+        "collab:state": {
+          "type": "string"
+        },
+        "collab:selector": {
+          "anyOf": [
+            { "$ref": "#/definitions/AdobeAnnoSelector" },
+            { "$ref": "#/definitions/AdobeDynamicViewSelector" },
+            { "$ref": "#/definitions/AdobeTemporalSelector"},
+            { "$ref": "#/definitions/AdobeFragmentSelector"}
+          ]
+        }
+      }
+    },
+    "collab:stylesheet": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "The Stylesheet Schema for Styling of richBodyValue",
+      "additionalProperties": false,
+      "properties": {
+        "collab:type": {
+          "type": "string",
+          "title": "CssStylesheet Specificator",
+          "pattern": "^CssStylesheet$"
+        },
+        "collab:value": {
+          "type": "string",
+          "title": "The CSS Definition for Styling of richBodyValue"
+        }
+      }
+    },
+    "collab:attachments": {
+      "type": "array",
+      "title": "attachments schema",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "collab:blobUri": {
+            "type": "string",
+            "title": "uri for the attachment blob"
+          }
+        }
+      }
+    }
+  }
+}

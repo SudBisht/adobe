@@ -1,0 +1,65 @@
+{
+  "meta:license": [
+    "Copyright 2023 Adobe Systems Incorporated. All rights reserved.",
+    "This work is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "$id": "http://ns.adobe.com/xcm/asset/annotation/srs-model/deleted-annotation",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Deleted Annotation entity definition in SRS",
+  "description": "Represents Deleted Annotation entity in SRS",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "@context": {
+      "type": "array",
+      "title": "The @context Schema",
+      "items": {
+        "type": "string",
+        "title": "The Items Schema"
+      }
+    },
+    "collab:Id": {
+      "type": "string",
+      "title": "The Id Schema"
+    },
+    "collab:annotationId": {
+      "type": "string",
+      "title": "The Id Schema"
+    },
+    "collab:creationId": {
+      "type": "string",
+      "title": "The Id Schema"
+    },
+    "collab:x-request-id": {
+      "type": "string",
+      "title": "The x-request-id Schema"
+    },
+    "collab:deletedBy": {
+      "type": "object",
+      "title": "The Created/modified by Schema",
+      "additionalProperties": false,
+      "properties": {
+        "repo:id": {
+          "type": "string",
+          "title": "The Id Schema"
+        },
+        "repo:name": {
+          "type": "string",
+          "title": "The Name Schema"
+        },
+        "repo:email": {
+          "type": "string",
+          "title": "The Email Schema"
+        }
+      }
+    },
+    "collab:deletedDate": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Creation/Modification time of Annotation"
+    }
+  },
+  "required": ["collab:creationId","collab:deletedDate"]
+}

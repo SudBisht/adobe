@@ -1,0 +1,25 @@
+{
+  "meta:license": [
+    "Copyright 2023 Adobe Systems Incorporated. All rights reserved.",
+    "This work is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "$id": "http://ns.adobe.com/xcm/asset/annotation/per-user-per-annotation",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Annotation Read/Unread Metadata Definitions",
+  "description": "Read/unread schema per user per annotation",
+  "type": [
+    "object"
+  ],
+  "properties" : {
+    "collab:readStatus": {
+      "additionalProperties": false,
+      "type": "boolean",
+      "title": "The read/unread status of an annotation per user"
+    }
+  },
+  "required": [
+    "collab:readStatus"
+  ]
+}

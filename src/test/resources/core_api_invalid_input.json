@@ -1,0 +1,51 @@
+{
+  "collab:body": {
+    "dc:format": "text/plain",
+    "value": "FROM Entity Sync"
+  },
+  "collab:createdBy": {
+    "repo:anonymous": false,
+    "repo:affiliation": "https://comments.acrobat.com/auth_providers/ims",
+    "repo:name": "QE Collab-US",
+    "repo:id": "urn:uuid:27C724AE6243CEC80A494005@AdobeID",
+    "repo:type": "Person",
+    "repo:email": "qecollab+commenting+us+dconacp2@adobetest.com"
+  },
+  "collab:createDate": "2023-06-30T21:47:22.169+00:00",
+  "collab:modifyDate": "2023-06-30T21:47:22.169+00:00",
+  "collab:motivation": "commenting",
+  "collab:generator": "https://comments.acrobat.com/redhawk",
+  "collab:type": "Annotation",
+  "@context": [
+    "https://www.w3.org/ns/anno.jsonld",
+    "https://comments.acrobat.com/ns/anno.jsonld"
+  ],
+  "collab:target": {
+    "collab:selector": {
+      "collab:type": "AdobeAnnoSelector",
+      "collab:subtype": "note",
+      "collab:noteX": 594.9319706950687,
+      "collab:noteY": 792,
+      "collab:boundingBox": [
+        594.9319706950687,
+        775.0450040017238,
+        611.8869666933449,
+        792
+      ],
+      "collab:strokeColor": "#F8D147",
+      "collab:strokeWidth": 3,
+      "collab:opacity": 0.4,
+      "collab:node": {
+        "collab:indices": [],
+        "collab:index": 0
+      }
+    },
+    "collab:source": "/assets/urn:aaid:sc:VA6C2:06a670af-2b79-4019-83af-3d570e242365",
+    "collab:state": "0"
+  },
+  "repo:etag": "1688165851275",
+  "collab:annotationId": "/assets/urn:aaid:sc:VA6C2:06a670af-2b79-4019-83af-3d570e242365/annots/b7799e0f-2e42-4ff7-89de-7e84ea4d9893",
+  "collab:creationId": "b7799e0f-2e42-4ff7-89de-7e84ea4d9893",
+  "collab:status": "open",
+  "collab:mentions": []
+}
